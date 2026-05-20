@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="20" fill="#e8f6ff" stroke="#dbeaf2"/>
+  <rect x="90" y="100" width="220" height="120" rx="18" fill="#6bbE44"/>
+  <circle cx="170" cy="150" r="18" fill="#ffffff"/>
+  <circle cx="230" cy="150" r="18" fill="#ffffff"/>
+  <path d="M140 200 C170 220 210 220 240 200" stroke="#ffffff" stroke-width="10" fill="none"/>
+  <text x="200" y="270" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="24" fill="#5a5a5a">Preschool</text>
+</svg>

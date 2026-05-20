@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7fc243"/>
+      <stop offset="100%" stop-color="#5aa62a"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(40,10)">
+    <!-- book -->
+    <path d="M60 120 C40 100 20 100 0 120 L0 140 C20 120 40 120 60 140 L60 120 Z" fill="#6b5a3a"/>
+    <path d="M60 120 C90 100 120 100 150 120 L150 140 C120 120 90 120 60 140 L60 120 Z" fill="#6b5a3a"/>
+    <rect x="72" y="118" width="6" height="24" rx="3" fill="#6b5a3a"/>
+    <!-- tree trunk -->
+    <path d="M90 30 C86 60 92 70 90 100" stroke="#6b5a3a" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- leaves -->
+    <circle cx="70" cy="30" r="12" fill="url(#g1)"/>
+    <circle cx="110" cy="24" r="10" fill="#8fd84a"/>
+    <circle cx="95" cy="10" r="8" fill="#9ee86a"/>
+    <circle cx="80" cy="48" r="8" fill="#7fd13d"/>
+  </g>
+</svg>

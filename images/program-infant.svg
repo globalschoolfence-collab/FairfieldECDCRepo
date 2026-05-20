@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="20" fill="#f3fbf0" stroke="#dfe8d7"/>
+  <path d="M120 220 C140 180 180 160 220 220" stroke="#6bbE44" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <circle cx="200" cy="160" r="30" fill="#7fc243"/>
+  <circle cx="170" cy="110" r="22" fill="#6bbE44"/>
+  <circle cx="230" cy="110" r="22" fill="#7fc243"/>
+  <text x="200" y="270" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="24" fill="#5a5a5a">Infant Care</text>
+</svg>

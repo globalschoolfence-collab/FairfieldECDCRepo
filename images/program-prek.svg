@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="20" fill="#f0f6ff" stroke="#d7e3f1"/>
+  <path d="M100 190 L300 190 L260 110 L140 110 Z" fill="#7cc244"/>
+  <rect x="160" y="70" width="80" height="40" rx="12" fill="#7c5a2e"/>
+  <text x="200" y="270" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="24" fill="#5a5a5a">Pre-K</text>
+</svg>

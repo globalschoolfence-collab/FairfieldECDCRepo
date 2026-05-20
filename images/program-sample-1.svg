@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="16" fill="#fffaf0" stroke="#e9e0d0"/>
+  <circle cx="70" cy="70" r="48" fill="#7fc243"/>
+  <text x="140" y="80" font-family="Poppins, Arial, sans-serif" font-size="22" fill="#6b5a3a">Infant Care</text>
+  <text x="140" y="110" font-family="Nunito, Arial, sans-serif" font-size="14" fill="#5a5a5a">6 weeks - 18 months</text>
+</svg>
