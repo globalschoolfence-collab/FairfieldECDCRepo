@@ -81,3 +81,4 @@ The backend serves the form endpoints at `/api/contact` and `/api/careers`.
 - Replace placeholder content with your actual daycare information
 - Add real photos to the gallery
 - Deploy to a web hosting service (GitHub Pages, Netlify, or any web host)
+# FairfieldEdu
