@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Fairfield Education Center - Get in touch with us for inquiries, tours, and more.">
+    <meta name="keywords" content="contact, phone, email, location, inquiry">
+    <meta property="og:title" content="Contact Us - Fairfield Education Center">
+    <meta property="og:description" content="Get in touch with Fairfield Education Center">
+    <title>Contact Us - Fairfield Education Center</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/leaflet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="../"><img src="../images/FEC logo.png" alt="Fairfield Education Centers logo" class="logo-img"></a>
+                </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../" class="nav-link">Home</a></li>
+                <li><a href="../about/" class="nav-link">About</a></li>
+                <li><a href="../programs/" class="nav-link">Programs</a></li>
+                <li><a href="../locations/" class="nav-link">Locations</a></li>
+                <li><a href="../admissions/" class="nav-link">Admissions</a></li>
+                <li><a href="../careers/" class="nav-link">Careers</a></li>
+                <li><a href="../contact/" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="../admissions/" class="btn btn-primary">Enroll Now</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Multiple ways to reach us</p>
+            </div>
+            <div class="contact-info-grid">
+                <div class="contact-info-box">
+                    <h3>📍 Main Campus</h3>
+                    <p>21531 Lorain Road<br>Fairview Park, OH 44126</p>
+                </div>
+                <div class="contact-info-box">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:5138293390">(513) 829-3390</a></p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Mon-Fri: 6:00 AM - 6:00 PM</p>
+                </div>
+                <div class="contact-info-box">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:fairfieldeducationcenters@gmail.com">fairfieldeducationcenters@gmail.com</a></p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">We respond within 24 hours</p>
+                </div>
+                <div class="contact-info-box">
+                    <h3>🕐 Hours</h3>
+                    <p>Monday - Friday<br>6:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-form-wrapper">
+                <div class="form-heading">
+                    <h2>Send us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you shortly</p>
+                </div>
+                <form class="contact-form" id="contactForm" action="/api/contact" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="New contact message from the website">
+                    <input type="text" name="website" autocomplete="off" style="display:none!important;visibility:hidden;" tabindex="-1">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Your Name *" required>
+                        <input type="email" name="email" placeholder="Your Email *" required>
+                    </div>
+                    <input type="tel" name="phone" placeholder="Your Phone Number" class="full-width">
+                    <select name="subject" required>
+                        <option value="">Select Subject *</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="tour">Schedule Tour</option>
+                        <option value="enrollment">Enrollment Question</option>
+                        <option value="program">Program Information</option>
+                        <option value="employment">Employment Opportunity</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea name="message" placeholder="Your Message *" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Locations -->
+    <section class="all-locations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>All Our Locations</h2>
+                <p>Contact any of our centers directly</p>
+            </div>
+            <div class="locations-contact-grid">
+                <div class="location-contact">
+                    <h4>Fairview Park</h4>
+                    <p>21531 Lorain Road<br>Fairview Park, OH 44126</p>
+                    <p><a href="tel:5138293390">(513) 829-3390</a></p>
+                    <a href="locations.html#fairview-park" class="link-btn">View Details →</a>
+                </div>
+                <div class="location-contact">
+                    <h4>Lorain</h4>
+                    <p>42325 Broadway Avenue<br>Lorain, OH 44052</p>
+                    <p><a href="tel:5138293390">(513) 829-3390</a></p>
+                    <a href="locations.html#lorain" class="link-btn">View Details →</a>
+                </div>
+                <div class="location-contact">
+                    <h4>Elyria</h4>
+                    <p>416 Middle Avenue<br>Elyria, OH 44035</p>
+                    <p><a href="tel:5138293390">(513) 829-3390</a></p>
+                    <a href="locations.html#middle" class="link-btn">View Details →</a>
+                </div>
+                <div class="location-contact">
+                    <h4>Fairlawn</h4>
+                    <p>258 S. Cleveland Massillon Road<br>Fairlawn, OH 44333</p>
+                    <p><a href="tel:5138293390">(513) 829-3390</a></p>
+                    <a href="locations.html#fairlawn" class="link-btn">View Details →</a>
+                </div>
+                <div class="location-contact">
+                    <h4>Brunswick</h4>
+                    <p>3889 Center Road<br>Brunswick, OH 44212</p>
+                    <p><a href="tel:5138293390">(513) 829-3390</a></p>
+                    <a href="locations.html#brunswick" class="link-btn">View Details →</a>
+                </div>
+                <div class="location-contact">
+                    <h4>College Park (Elyria)</h4>
+                    <p>295 College Park Drive<br>Elyria, OH 44035</p>
+                    <p><a href="tel:5138293390">(513) 829-3390</a></p>
+                    <a href="locations.html#college-park" class="link-btn">View Details →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Find Us on the Map</h2>
+                <p>All 6 centers shown — click a tab or a pin to focus</p>
+            </div>
+            <div class="map-tabs" id="mapTabs" role="tablist">
+                <button class="map-tab active" role="tab" data-idx="-1">All Centers</button>
+                <button class="map-tab" role="tab" data-idx="0">Fairview Park</button>
+                <button class="map-tab" role="tab" data-idx="1">Lorain</button>
+                <button class="map-tab" role="tab" data-idx="2">Elyria</button>
+                <button class="map-tab" role="tab" data-idx="3">Fairlawn</button>
+                <button class="map-tab" role="tab" data-idx="4">Brunswick</button>
+                <button class="map-tab" role="tab" data-idx="5">College Park</button>
+            </div>
+            <div id="contactMap" class="contact-map"></div>
+            <div class="map-info-bar" id="mapInfoBar">
+                <span class="map-info-name">📍 All 6 Fairfield Education Centers</span>
+                <span class="map-info-address">Serving communities across Northeast Ohio — click a pin for details</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>What are your center hours?</h4>
+                    <p>We're open Monday through Friday from 6:00 AM to 6:00 PM. Hours may vary by location.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I schedule a tour?</h4>
+                    <p>You can schedule a tour by calling us at (513) 829-3390, emailing fairfieldeducationcenters@gmail.com, or using our contact form. Tours are typically available during business hours.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What is your enrollment process?</h4>
+                    <p>Our enrollment process involves submitting an application, scheduling a tour, completing required documents, and paying the registration fee. Most families complete the process within 1-2 weeks.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What does enrollment include?</h4>
+                    <p>Enrollment includes daily care, meals and snacks, educational programs, activities, outdoor play, and regular communication with parents about your child's progress.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you offer flexible scheduling options?</h4>
+                    <p>Yes! We offer Full-Time, Part-Time, and Drop-In options to fit your family's needs. Pricing varies by schedule type.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if my child has food allergies?</h4>
+                    <p>We take allergies very seriously. We'll work with you to create safe meal plans and train staff on your child's specific allergies and emergency protocols.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you offer financial assistance?</h4>
+                    <p>Yes! We accept state subsidies and voucher programs. Contact us to discuss financial assistance options available in your area.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can parents visit during the day?</h4>
+                    <p>Absolutely! We encourage parent involvement. We ask that you schedule visits in advance to minimize disruption to classroom activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Learn More?</h2>
+            <p>Schedule a tour or start the enrollment process today</p>
+            <a href="../admissions/" class="btn btn-primary">Start Enrollment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>About Fairfield Education</h4>
+                    <p>Dedicated to providing exceptional childcare and early education services that support each child's unique development and growth.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../programs/">Programs</a></li>
+                        <li><a href="../locations/">Locations</a></li>
+                        <li><a href="../admissions/">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>📞 (513) 829-3390</p>
+                    <p>📧 fairfieldeducationcenters@gmail.com</p>
+                    <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=21531+Lorain+Road+Fairview+Park+OH+44126" target="_blank" rel="noopener">21531 Lorain Road<br>Fairview Park, OH 44126</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <p>Monday - Friday<br>6:00 AM - 6:00 PM</p>
+                   
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fairfield Education Center. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/leaflet.js"></script>
+    <script>
+        // Fix Leaflet's auto-detected icon path (breaks when script isn't in /js)
+        delete L.Icon.Default.prototype._getIconUrl;
+        L.Icon.Default.mergeOptions({
+            iconUrl:       'images/leaflet/marker-icon.png',
+            iconRetinaUrl: 'images/leaflet/marker-icon-2x.png',
+            shadowUrl:     'images/leaflet/marker-shadow.png',
+        });
+
+        const LOCATIONS = [
+            { name: 'Fairview Park', full: 'Fairfield Education Centers — Fairview Park', address: '21531 Lorain Road, Fairview Park, OH 44126',          phone: '(513) 829-3390', tel: '5138293390', lat: 41.4553, lon: -81.8646 },
+            { name: 'Lorain',        full: 'Fairfield Education Centers — Lorain',        address: '42325 Broadway Avenue, Lorain, OH 44052',             phone: '(513) 829-3390', tel: '5138293390', lat: 41.4673, lon: -82.1821 },
+            { name: 'Elyria',        full: 'Fairfield Education Centers — Elyria',        address: '416 Middle Avenue, Elyria, OH 44035',                 phone: '(513) 829-3390', tel: '5138293390', lat: 41.3694, lon: -82.1074 },
+            { name: 'Fairlawn',      full: 'Fairfield Education Centers — Fairlawn',      address: '258 S. Cleveland Massillon Road, Fairlawn, OH 44333', phone: '(513) 829-3390', tel: '5138293390', lat: 41.1270, lon: -81.6268 },
+            { name: 'Brunswick',     full: 'Fairfield Education Centers — Brunswick',     address: '3889 Center Road, Brunswick, OH 44212',               phone: '(513) 829-3390', tel: '5138293390', lat: 41.2417, lon: -81.8424 },
+            { name: 'College Park',  full: 'Fairfield Education Centers — College Park',  address: '295 College Park Drive, Elyria, OH 44035',            phone: '(513) 829-3390', tel: '5138293390', lat: 41.3553, lon: -82.1073 },
+        ];
+
+        // Build marker icon — normal or highlighted
+        // Circle head (44px / 54px) + triangle pointer (11px / 13px) below
+        function makeIcon(active) {
+            const size   = active ? 54 : 44;
+            const tip    = active ? 13 : 11;
+            const total  = size + tip;
+            return L.divIcon({
+                className: '',
+                html: `<div class="fec-marker${active ? ' fec-marker--active' : ''}">
+                           <img src="../images/logo.svg" alt="FEC">
+                       </div>`,
+                iconSize:    [size, total],
+                iconAnchor:  [size / 2, total],   // tip of triangle = ground point
+                popupAnchor: [0, -(total + 4)]
+            });
+        }
+
+        // Initialise map (disable scroll zoom so page doesn't hijack scroll)
+        const map = L.map('contactMap', { scrollWheelZoom: false, zoomControl: true });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Add all markers
+        const markers = LOCATIONS.map((loc, i) => {
+            const m = L.marker([loc.lat, loc.lon], { icon: makeIcon(false) }).addTo(map);
+            m.bindPopup(`
+                <div class="map-popup">
+                    <strong>${loc.full}</strong><br>
+                    <span>${loc.address}</span><br>
+                    <a href="tel:${loc.tel}">${loc.phone}</a><br>
+                    <small>Mon–Fri 6 AM–6 PM</small>
+                </div>`);
+            m.on('click', () => selectLocation(i));
+            return m;
+        });
+
+        // Fit map to show all markers
+        const allGroup = L.featureGroup(markers);
+        map.fitBounds(allGroup.getBounds().pad(0.12));
+        // Force Leaflet to recalculate container size after page layout settles
+        setTimeout(() => map.invalidateSize(), 200);
+        updateInfoBar(-1);
+
+        function updateInfoBar(idx) {
+            const el = document.getElementById('mapInfoBar');
+            if (idx === -1) {
+                el.innerHTML = `
+                    <span class="map-info-name">📍 All 6 Fairfield Education Centers</span>
+                    <span class="map-info-address">Serving communities across Northeast Ohio — click a pin for details</span>`;
+            } else {
+                const loc = LOCATIONS[idx];
+                el.innerHTML = `
+                    <span class="map-info-name">📍 ${loc.full}</span>
+                    <span class="map-info-address">${loc.address}</span>
+                    <span class="map-info-phone"><a href="tel:${loc.tel}">${loc.phone}</a></span>
+                    <span class="map-info-hours">Mon–Fri 6 AM–6 PM</span>`;
+            }
+        }
+
+        function selectLocation(idx) {
+            // Update tabs
+            document.querySelectorAll('.map-tab').forEach(btn =>
+                btn.classList.toggle('active', Number(btn.dataset.idx) === idx));
+
+            markers.forEach((m, i) => {
+                const active = i === idx;
+                if (idx === -1 || active) {
+                    if (!map.hasLayer(m)) m.addTo(map);
+                } else if (map.hasLayer(m)) {
+                    map.removeLayer(m);
+                }
+                m.setIcon(makeIcon(active));
+            });
+
+            if (idx === -1) {
+                map.fitBounds(allGroup.getBounds().pad(0.12));
+            } else {
+                map.setView([LOCATIONS[idx].lat, LOCATIONS[idx].lon], 15);
+                markers[idx].openPopup();
+            }
+            updateInfoBar(idx);
+        }
+
+        document.getElementById('mapTabs').addEventListener('click', e => {
+            const btn = e.target.closest('.map-tab');
+            if (btn) selectLocation(Number(btn.dataset.idx));
+        });
+    </script>
+</body>
+</html>

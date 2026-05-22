@@ -3,6 +3,12 @@
 // Main JavaScript File
 // ==========================================
 
+const FUNCTION_URLS = {
+    contact:    'https://us-central1-fecemail-497003.cloudfunctions.net/contact',
+    careers:    'https://us-central1-fecemail-497003.cloudfunctions.net/careers',
+    admissions: 'https://us-central1-fecemail-497003.cloudfunctions.net/admissions'
+};
+
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -24,10 +30,13 @@ if (hamburger) {
 
 // Set active nav link based on current page
 function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    const current = segments[segments.length - 1] || 'home';
     document.querySelectorAll('.nav-menu a').forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        const hrefSegments = href.split('/').filter(s => s && s !== '..' && s !== '.');
+        const linkPage = hrefSegments[hrefSegments.length - 1] || 'home';
+        if (current === linkPage || (current === 'home' && linkPage === 'home')) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -40,7 +49,6 @@ document.addEventListener('DOMContentLoaded', setActiveNavLink);
 
 // Form Validation
 const contactForm = document.querySelector('.contact-form');
-const careersForm = document.querySelector('.careers-form');
 
 if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
@@ -66,37 +74,19 @@ if (contactForm) {
     });
 }
 
-if (careersForm) {
-    careersForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        if (!careersForm.checkValidity()) {
-            alert('Please fill in all required fields');
-            return;
-        }
-
-        const emailEl = careersForm.querySelector('input[type="email"]');
-        if (emailEl && !isValidEmail(emailEl.value.trim())) {
-            alert('Please enter a valid email address');
-            return;
-        }
-
-        const phoneEl = careersForm.querySelector('input[name="phone"]');
-        if (phoneEl && !isValidPhone(phoneEl.value.trim())) {
-            alert('Please enter a valid phone number');
-            return;
-        }
-
-        await submitFormData(careersForm, 'Thank you for your application! Our hiring team will contact you shortly.');
-    });
-}
 
 async function submitFormData(form, successMessage) {
     const formData = new FormData(form);
-    const actionUrl = form.getAttribute('action');
+    let actionUrl = form.getAttribute('action');
 
     if (!actionUrl) {
         alert('Form action is not configured. Please contact the site administrator.');
         return;
+    }
+
+    if (actionUrl.startsWith('/api/')) {
+        const fnName = actionUrl.replace('/api/', '');
+        actionUrl = FUNCTION_URLS[fnName] || actionUrl;
     }
 
     try {
@@ -130,27 +120,6 @@ function isValidPhone(phone) {
     if (digits.length !== 10) return false;
     if (/^(\d)\1{9}$/.test(digits)) return false;
     return true;
-}
-
-// Admissions form validation
-const admissionsForm = document.querySelector('.admissions-form');
-if (admissionsForm) {
-    admissionsForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (!admissionsForm.checkValidity()) {
-            alert('Please fill in all required fields');
-            return;
-        }
-
-        const emailEl = admissionsForm.querySelector('input[type="email"]');
-        if (emailEl && !isValidEmail(emailEl.value.trim())) {
-            alert('Please enter a valid email address');
-            return;
-        }
-
-        alert('Thank you for submitting your application! Our admissions team will contact you shortly.');
-        admissionsForm.reset();
-    });
 }
 
 // Smooth scrolling for anchor links

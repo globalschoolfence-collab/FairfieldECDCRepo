@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Fairfield Education Center team. Explore open positions and build a meaningful career in early childhood education.">
+    <meta name="keywords" content="careers, jobs, childcare jobs, educator jobs, Fairfield, early childhood education">
+    <meta property="og:title" content="Careers - Fairfield Education Center">
+    <meta property="og:description" content="Join our team of passionate educators and childcare professionals.">
+    <title>Careers - Fairfield Education Center</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/leaflet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="../"><img src="../images/FEC logo.png" alt="Fairfield Education Centers logo" class="logo-img"></a>
+                </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../" class="nav-link">Home</a></li>
+                <li><a href="../about/" class="nav-link">About</a></li>
+                <li><a href="../programs/" class="nav-link">Programs</a></li>
+                <li><a href="../locations/" class="nav-link">Locations</a></li>
+                <li><a href="../admissions/" class="nav-link">Admissions</a></li>
+                <li><a href="../careers/" class="nav-link">Careers</a></li>
+                <li><a href="../contact/" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="../admissions/" class="btn btn-primary">Enroll Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="careers-hero">
+        <div class="container">
+            <div class="careers-hero-content">
+                <span class="careers-hero-badge">We're Hiring</span>
+                <h1>Build a Career That Means Something</h1>
+                <p>We're looking for compassionate educators who bring warmth, creativity, and consistency to the classroom each day. Join a team that truly makes a difference in children's lives.</p>
+                <div class="careers-hero-actions">
+                    <a href="#open-positions" class="btn btn-primary">View Open Positions</a>
+                    <a href="#apply" class="btn btn-outline">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Us -->
+    <section class="careers-benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Work With Us</h2>
+                <p>We invest in our people because great teachers make great outcomes</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏥</div>
+                    <h3>Health Benefits</h3>
+                    <p>Medical, dental, and vision coverage for all full-time employees. Your wellbeing is our priority.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h3>Paid Training & Certifications</h3>
+                    <p>We cover CDA credentialing, Step Up To Quality certifications, and ongoing professional development.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Supportive Leadership</h3>
+                    <p>Work alongside experienced center directors and responsive management who have your back every step of the way.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👨‍👩‍👧</div>
+                    <h3>Childcare Discount</h3>
+                    <p>Employees receive a generous tuition discount for their own children enrolled at any of our centers.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h3>Consistent Schedule</h3>
+                    <p>Enjoy predictable hours with no nights or weekends. Our centers operate Monday–Friday with Saturday half-days.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌱</div>
+                    <h3>Room to Grow</h3>
+                    <p>Advance from teacher to lead educator to director. We promote from within and celebrate every milestone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions -->
+    <section class="open-positions-section" id="open-positions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Next Career Starts Here</h2>
+                <p>We have <strong>12 open positions</strong> across our 6 centers in Northeast Ohio</p>
+            </div>
+
+            <div class="careers-map-layout">
+                <!-- Map Panel -->
+                <div class="careers-map-panel">
+                    <div id="careersMap" class="careers-map"></div>
+                    <p class="map-hint">Tap any pin to filter jobs by location</p>
+                </div>
+
+                <!-- Jobs Panel -->
+                <div class="careers-jobs-panel">
+                    <!-- Location tabs -->
+                    <div class="loc-tabs" id="locTabs">
+                        <button class="loc-tab active" data-loc="all">All Centers</button>
+                        <button class="loc-tab" data-loc="Fairview Park">Fairview Park</button>
+                        <button class="loc-tab" data-loc="Lorain">Lorain</button>
+                        <button class="loc-tab" data-loc="Elyria">Elyria</button>
+                        <button class="loc-tab" data-loc="Fairlawn">Fairlawn</button>
+                        <button class="loc-tab" data-loc="Brunswick">Brunswick</button>
+                        <button class="loc-tab" data-loc="College Park">College Park</button>
+                    </div>
+
+                    <!-- Type filter -->
+                    <div class="positions-filter">
+                        <button class="filter-btn active" data-filter="all">All Types</button>
+                        <button class="filter-btn" data-filter="teaching">Teaching</button>
+                        <button class="filter-btn" data-filter="administrative">Administrative</button>
+                        <button class="filter-btn" data-filter="support">Support</button>
+                    </div>
+
+                    <!-- Job cards -->
+                    <div class="positions-list" id="positionsList">
+
+                        <div class="position-card" data-category="teaching" data-loc="Fairview Park">
+                            <div class="position-info">
+                                <h5>Infant/Toddler Lead Teacher</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-full">Full-Time</span>
+                                    <span class="tag tag-loc">Fairview Park, OH</span>
+                                </div>
+                                <p>Lead daily curriculum and nurturing care for our youngest learners ages 6 weeks–2 years. CDA or Associate's degree preferred.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="teaching" data-loc="Fairview Park">
+                            <div class="position-info">
+                                <h5>Preschool Teacher (Ages 3–5)</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-full">Full-Time</span>
+                                    <span class="tag tag-loc">Fairview Park, OH</span>
+                                </div>
+                                <p>Design and deliver play-based learning experiences for preschool-age children.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="teaching" data-loc="Fairview Park">
+                            <div class="position-info">
+                                <h5>Floater Teacher</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-part">Part-Time</span>
+                                    <span class="tag tag-loc">Fairview Park, OH</span>
+                                </div>
+                                <p>Support classrooms across age groups as needed. Flexible hours, great for part-time work.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="administrative" data-loc="Fairview Park">
+                            <div class="position-info">
+                                <h5>Administrative Assistant</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-full">Full-Time</span>
+                                    <span class="tag tag-loc">Fairview Park, OH</span>
+                                </div>
+                                <p>Support center operations, family communications, and enrollment coordination.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="teaching" data-loc="Lorain">
+                            <div class="position-info">
+                                <h5>Lead Preschool Teacher</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-full">Full-Time</span>
+                                    <span class="tag tag-loc">Lorain, OH</span>
+                                </div>
+                                <p>Lead a classroom of 3–5 year olds with a focus on school-readiness and social-emotional learning.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="teaching" data-loc="Lorain">
+                            <div class="position-info">
+                                <h5>Teacher's Aide</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-part">Part-Time</span>
+                                    <span class="tag tag-loc">Lorain, OH</span>
+                                </div>
+                                <p>Assist lead teachers with daily activities, supervision, and classroom management. Entry-level — training provided.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="support" data-loc="Lorain">
+                            <div class="position-info">
+                                <h5>Kitchen / Nutrition Aide</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-part">Part-Time</span>
+                                    <span class="tag tag-loc">Lorain, OH</span>
+                                </div>
+                                <p>Prepare nutritious meals and snacks for children. Food handler certification required.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="teaching" data-loc="Elyria">
+                            <div class="position-info">
+                                <h5>After-School Program Teacher</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-part">Part-Time</span>
+                                    <span class="tag tag-loc">Elyria, OH</span>
+                                </div>
+                                <p>Supervise and engage school-age children (K–5) in homework help, enrichment activities, and outdoor play.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="teaching" data-loc="Elyria">
+                            <div class="position-info">
+                                <h5>Infant Caregiver</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-full">Full-Time</span>
+                                    <span class="tag tag-loc">Elyria, OH</span>
+                                </div>
+                                <p>Provide attentive, loving care for infants 6 weeks–12 months. Experience with infants strongly preferred.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="teaching" data-loc="Fairlawn">
+                            <div class="position-info">
+                                <h5>Toddler Room Teacher</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-full">Full-Time</span>
+                                    <span class="tag tag-loc">Fairlawn, OH</span>
+                                </div>
+                                <p>Support the developmental milestones of toddlers ages 1–3 through structured play and sensory activities.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="support" data-loc="Brunswick">
+                            <div class="position-info">
+                                <h5>Facility & Maintenance Aide</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-part">Part-Time</span>
+                                    <span class="tag tag-loc">Brunswick, OH</span>
+                                </div>
+                                <p>Keep our center clean, safe, and well-maintained. Responsibilities include cleaning, minor repairs, and supply restocking.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                        <div class="position-card" data-category="administrative" data-loc="College Park">
+                            <div class="position-info">
+                                <h5>Center Director (Assistant)</h5>
+                                <div class="position-meta">
+                                    <span class="tag tag-full">Full-Time</span>
+                                    <span class="tag tag-loc">College Park, Elyria, OH</span>
+                                </div>
+                                <p>Assist the center director with staff scheduling, licensing compliance, family relations, and daily operations.</p>
+                            </div>
+                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                        </div>
+
+                    </div>
+                    <p class="no-positions" id="noPositions" style="display:none;">No positions match the selected filters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="careers-apply-section" id="apply">
+        <div class="container">
+            <div class="apply-wrapper">
+                <div class="apply-info">
+                    <h2>Ready to Join Our Team?</h2>
+                    <p>Submit your application below and a member of our hiring team will reach out within 2 business days. We welcome applicants of all backgrounds who share our passion for early childhood education.</p>
+                    <ul class="apply-checklist">
+                        <li>✅ No experience required for aide roles — we train</li>
+                        <li>✅ Background check assistance provided</li>
+                        <li>✅ CPR/First Aid certification support available</li>
+                        <li>✅ Immediate openings at all four locations</li>
+                    </ul>
+                </div>
+                <form class="careers-form" id="careersForm" action="/api/careers" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="New careers application from the website">
+                    <input type="text" name="website" autocomplete="off" style="display:none!important;visibility:hidden;" tabindex="-1">
+                    <div class="form-row">
+                        <input type="text" name="firstName" placeholder="First Name *" required>
+                        <input type="text" name="lastName" placeholder="Last Name *" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" name="email" placeholder="Email Address *" required>
+                        <input type="tel" name="phone" placeholder="Phone Number *" required>
+                    </div>
+                    <select name="preferredLocation" required>
+                        <option value="">Preferred Location *</option>
+                        <option value="Fairview Park">Fairview Park</option>
+                        <option value="Lorain">Lorain</option>
+                        <option value="Elyria">Elyria</option>
+                        <option value="Fairlawn">Fairlawn</option>
+                        <option value="Brunswick">Brunswick</option>
+                        <option value="College Park (Elyria)">College Park (Elyria)</option>
+                        <option value="Any Location">Any Location</option>
+                    </select>
+                    <select name="position" required>
+                        <option value="">Position of Interest *</option>
+                        <option value="Lead Teacher">Lead Teacher</option>
+                        <option value="Teacher's Aide">Teacher's Aide</option>
+                        <option value="Infant/Toddler Caregiver">Infant/Toddler Caregiver</option>
+                        <option value="After-School Teacher">After-School Teacher</option>
+                        <option value="Administrative Role">Administrative Role</option>
+                        <option value="Support / Facilities">Support / Facilities</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <select name="availability">
+                        <option value="">Availability</option>
+                        <option value="Full-Time">Full-Time</option>
+                        <option value="Part-Time">Part-Time</option>
+                        <option value="Either">Either</option>
+                    </select>
+                    <textarea name="coverLetter" placeholder="Tell us a little about yourself and why you'd like to join our team..." rows="5"></textarea>
+                    <div class="resume-upload">
+                        <label for="resume">Upload Resume (optional)</label>
+                        <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx">
+                    </div>
+                    <div id="careersStatus" class="form-status" aria-live="polite"></div>
+                    <button type="submit" class="btn btn-primary btn-block" id="careersSubmitBtn">Submit Application</button>
+                    <p class="form-note">We respect your privacy. Your information will only be used for hiring purposes.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Have Questions About a Role?</h2>
+            <p>Reach out to our team — we're happy to help</p>
+            <a href="../contact/" class="btn btn-primary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>About Fairfield Education</h4>
+                    <p>Dedicated to providing exceptional childcare and early education services that support each child's unique development and growth.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../programs/">Programs</a></li>
+                        <li><a href="../locations/">Locations</a></li>
+                        <li><a href="../admissions/">Admissions</a></li>
+                        <li><a href="../careers/">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>📞 (513) 829-3390</p>
+                    <p>📧 fairfieldeducationcenters@gmail.com</p>
+                    <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=21531+Lorain+Road+Fairview+Park+OH+44126" target="_blank" rel="noopener">21531 Lorain Road<br>Fairview Park, OH 44126</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <p>Monday - Friday<br>6:00 AM - 6:00 PM</p>
+                   
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fairfield Education Center. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/leaflet.js"></script>
+    <script>
+        // ── Map setup ──────────────────────────────────────────────────────────
+        delete L.Icon.Default.prototype._getIconUrl;
+        L.Icon.Default.mergeOptions({
+            iconUrl:       'images/leaflet/marker-icon.png',
+            iconRetinaUrl: 'images/leaflet/marker-icon-2x.png',
+            shadowUrl:     'images/leaflet/marker-shadow.png',
+        });
+
+        const CENTERS = [
+            { name: 'Fairview Park', lat: 41.4553, lon: -81.8646 },
+            { name: 'Lorain',        lat: 41.4673, lon: -82.1821 },
+            { name: 'Elyria',        lat: 41.3694, lon: -82.1074 },
+            { name: 'Fairlawn',      lat: 41.1270, lon: -81.6268 },
+            { name: 'Brunswick',     lat: 41.2417, lon: -81.8424 },
+            { name: 'College Park',  lat: 41.3553, lon: -82.1073 },
+        ];
+
+        function jobCount(loc) {
+            return loc === 'all'
+                ? document.querySelectorAll('.position-card').length
+                : [...document.querySelectorAll('.position-card')].filter(c => c.dataset.loc === loc).length;
+        }
+
+        function makeCareerPin(name, active) {
+            const count = jobCount(name);
+            return L.divIcon({
+                className: '',
+                html: `<div class="career-pin${active ? ' career-pin--active' : ''}">
+                           <span class="career-pin-count">${count}</span>
+                           <span class="career-pin-label">${name}</span>
+                       </div>`,
+                iconSize: [80, 52],
+                iconAnchor: [40, 52],
+                popupAnchor: [0, -56]
+            });
+        }
+
+        const careersMap = L.map('careersMap', { scrollWheelZoom: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 19
+        }).addTo(careersMap);
+
+        const careerMarkers = CENTERS.map((c, i) => {
+            const m = L.marker([c.lat, c.lon], { icon: makeCareerPin(c.name, false) }).addTo(careersMap);
+            m.on('click', () => selectLocation(c.name));
+            return m;
+        });
+
+        const allGroup = L.featureGroup(careerMarkers);
+        careersMap.fitBounds(allGroup.getBounds().pad(0.15));
+        setTimeout(() => careersMap.invalidateSize(), 200);
+
+        // ── Filter logic ───────────────────────────────────────────────────────
+        let activeLoc = 'all';
+        let activeType = 'all';
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('.position-card');
+            let visible = 0;
+            cards.forEach(card => {
+                const locMatch  = activeLoc  === 'all' || card.dataset.loc === activeLoc;
+                const typeMatch = activeType === 'all' || card.dataset.category === activeType;
+                const show = locMatch && typeMatch;
+                card.style.display = show ? 'flex' : 'none';
+                if (show) visible++;
+            });
+            document.getElementById('noPositions').style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        function selectLocation(loc) {
+            activeLoc = loc;
+
+            // Update location tabs
+            document.querySelectorAll('.loc-tab').forEach(t =>
+                t.classList.toggle('active', t.dataset.loc === loc));
+
+            // Update map pins
+            careerMarkers.forEach((m, i) => {
+                const active = CENTERS[i].name === loc;
+                m.setIcon(makeCareerPin(CENTERS[i].name, active));
+            });
+
+            if (loc === 'all') {
+                careersMap.fitBounds(allGroup.getBounds().pad(0.15));
+            } else {
+                const idx = CENTERS.findIndex(c => c.name === loc);
+                if (idx >= 0) careersMap.setView([CENTERS[idx].lat, CENTERS[idx].lon], 14);
+            }
+
+            applyFilters();
+        }
+
+        // Location tab clicks
+        document.getElementById('locTabs').addEventListener('click', e => {
+            const tab = e.target.closest('.loc-tab');
+            if (tab) selectLocation(tab.dataset.loc);
+        });
+
+        // Type filter clicks
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeType = btn.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        // Careers form — fetch submit
+        document.getElementById('careersForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('careersSubmitBtn');
+            const status = document.getElementById('careersStatus');
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            status.innerHTML = '';
+
+            try {
+                const apiUrl = (typeof FUNCTION_URLS !== 'undefined' && FUNCTION_URLS.careers)
+                    ? FUNCTION_URLS.careers
+                    : '/api/careers';
+                const res = await fetch(apiUrl, { method: 'POST', body: new FormData(this) });
+                const data = await res.json();
+                if (data.success) {
+                    this.reset();
+                    status.innerHTML = '<div class="form-success"><div class="success-icon">✅</div><h3>Application Received!</h3><p>Thank you for your interest in joining our team. We\'ll be in touch within 2 business days.</p></div>';
+                    btn.style.display = 'none';
+                } else {
+                    const errP = document.createElement('p');
+                    errP.className = 'form-error';
+                    errP.textContent = data.error || 'Something went wrong. Please try again.';
+                    status.replaceChildren(errP);
+                    btn.disabled = false;
+                    btn.textContent = 'Submit Application';
+                }
+            } catch {
+                status.innerHTML = '<p class="form-error">Network error. Please check your connection and try again.</p>';
+                btn.disabled = false;
+                btn.textContent = 'Submit Application';
+            }
+        });
+    </script>
+</body>
+</html>
