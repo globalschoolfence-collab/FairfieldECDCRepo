@@ -81,7 +81,8 @@ exports.admissions = async (req, res) => {
   const {
     parentFirstName, parentLastName, email, phone, address,
     childFirstName, childLastName, childDob, childAge, program,
-    location, schedule, startDate, allergies, comments
+    location, schedule, startDate, allergies, comments,
+    additionalChildren: additionalChildrenRaw
   } = fields;
 
   if (!parentFirstName?.trim()) return res.status(400).json({ error: 'Parent first name is required.' });
@@ -95,19 +96,36 @@ exports.admissions = async (req, res) => {
   if (!location?.trim())        return res.status(400).json({ error: 'Preferred location is required.' });
   if (!schedule?.trim())        return res.status(400).json({ error: 'Schedule type is required.' });
 
+  let additionalChildren = [];
+  if (additionalChildrenRaw?.trim()) {
+    try { additionalChildren = JSON.parse(additionalChildrenRaw); } catch { /* ignore malformed */ }
+  }
+
   const f = files.stateForm;
   const attachments = f?.buffer ? [{ filename: f.filename, content: f.buffer }] : [];
+
+  const emailFields = {
+    parentFirstName, parentLastName, email, phone, address,
+    childFirstName, childLastName, childDob, childAge, program,
+    location, schedule, startDate, allergies, comments,
+  };
+  additionalChildren.forEach((child, i) => {
+    const n = i + 2;
+    emailFields[`child${n}FirstName`] = child.firstName;
+    emailFields[`child${n}LastName`] = child.lastName;
+    if (child.dob)     emailFields[`child${n}Dob`]     = child.dob;
+    if (child.age)     emailFields[`child${n}Age`]     = child.age;
+    if (child.program) emailFields[`child${n}Program`] = child.program;
+  });
+  if (f) emailFields.stateForm = f.filename;
+
+  const childNames = [`${childFirstName} ${childLastName}`, ...additionalChildren.map(c => `${c.firstName} ${c.lastName}`)].join(', ');
 
   try {
     await createTransporter().sendMail({
       from: MAIL_FROM, to: MAIL_TO, replyTo: email,
-      subject: `Enrollment Application: ${childFirstName} ${childLastName}`,
-      html: buildHtml('New Enrollment Application', {
-        parentFirstName, parentLastName, email, phone, address,
-        childFirstName, childLastName, childDob, childAge, program,
-        location, schedule, startDate, allergies, comments,
-        ...(f ? { stateForm: f.filename } : {})
-      }),
+      subject: `Enrollment Application: ${childNames}`,
+      html: buildHtml('New Enrollment Application', emailFields),
       attachments
     });
     res.json({ success: true });

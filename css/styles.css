@@ -2091,6 +2091,64 @@ footer {
     width: auto;
 }
 
+/* ── Multiple children ── */
+.btn-add-child {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: 2px dashed var(--primary-color);
+    color: var(--primary-color);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+.btn-add-child:hover {
+    background: rgba(107, 190, 68, 0.08);
+}
+
+.child-legend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.remove-child-btn {
+    background: none;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.2rem 0.65rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-left: 1rem;
+}
+.remove-child-btn:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.additional-child {
+    border-top: 2px dashed var(--secondary-color);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+    animation: fadeInDown 0.25s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ── State Form Section ── */
 .state-form-section {
     background: #fff;

@@ -101,27 +101,31 @@
                     <input type="text" name="address" placeholder="Street Address" class="full-width">
                 </fieldset>
 
-                <!-- Child Information -->
-                <fieldset class="form-section">
-                    <legend>Child Information</legend>
-                    <div class="form-row">
-                        <input type="text" name="childFirstName" placeholder="Child's First Name *" required>
-                        <input type="text" name="childLastName" placeholder="Child's Last Name *" required>
-                    </div>
-                    <div class="form-row">
-                        <input type="date" name="childDob" required>
-                        <input type="text" name="childAge" placeholder="Current Age" id="childAgeField">
-                    </div>
-                    <select name="program" required>
-                        <option value="">Select Program of Interest *</option>
-                        <option value="Infant Care">Infant Care</option>
-                        <option value="Toddler">Toddler</option>
-                        <option value="Preschool">Preschool</option>
-                        <option value="Pre-Kindergarten">Pre-Kindergarten</option>
-                        <option value="Before/After School">Before/After School</option>
-                        <option value="Summer Camp">Summer Camp</option>
-                    </select>
-                </fieldset>
+                <!-- Children Information -->
+                <div id="childrenContainer">
+                    <fieldset class="form-section child-section" id="childSection1">
+                        <legend>Child 1 Information</legend>
+                        <div class="form-row">
+                            <input type="text" name="childFirstName" placeholder="Child's First Name *" required>
+                            <input type="text" name="childLastName" placeholder="Child's Last Name *" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="date" name="childDob" required>
+                            <input type="text" name="childAge" placeholder="Current Age" id="childAgeField" readonly>
+                        </div>
+                        <select name="program" required>
+                            <option value="">Select Program of Interest *</option>
+                            <option value="Infant Care">Infant Care</option>
+                            <option value="Toddler">Toddler</option>
+                            <option value="Preschool">Preschool</option>
+                            <option value="Pre-Kindergarten">Pre-Kindergarten</option>
+                            <option value="Before/After School">Before/After School</option>
+                            <option value="Summer Camp">Summer Camp</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <button type="button" id="addChildBtn" class="btn-add-child">+ Add Another Child</button>
+                <input type="hidden" name="additionalChildren" id="additionalChildrenField">
 
                 <!-- Program Preferences -->
                 <fieldset class="form-section">
@@ -298,7 +302,7 @@
             text.textContent = this.files[0] ? this.files[0].name : 'Choose completed state form (PDF or image)';
         });
 
-        // Auto-calculate child age from DOB
+        // Auto-calculate child age from DOB (child 1)
         document.querySelector('[name="childDob"]').addEventListener('change', function() {
             const dob = new Date(this.value);
             if (isNaN(dob)) return;
@@ -307,6 +311,111 @@
             let months = today.getMonth() - dob.getMonth();
             if (months < 0) { years--; months += 12; }
             document.getElementById('childAgeField').value = years > 0 ? `${years}y ${months}m` : `${months} months`;
+        });
+
+        // ── Multiple children ──
+        const PROGRAMS = [
+            ['', 'Select Program of Interest *'],
+            ['Infant Care', 'Infant Care'],
+            ['Toddler', 'Toddler'],
+            ['Preschool', 'Preschool'],
+            ['Pre-Kindergarten', 'Pre-Kindergarten'],
+            ['Before/After School', 'Before/After School'],
+            ['Summer Camp', 'Summer Camp'],
+        ];
+
+        function calcAge(dobValue) {
+            const dob = new Date(dobValue);
+            if (isNaN(dob)) return '';
+            const today = new Date();
+            let years = today.getFullYear() - dob.getFullYear();
+            let months = today.getMonth() - dob.getMonth();
+            if (months < 0) { years--; months += 12; }
+            return years > 0 ? `${years}y ${months}m` : `${months} months`;
+        }
+
+        function createChildSection(num) {
+            const fs = document.createElement('fieldset');
+            fs.className = 'form-section child-section additional-child';
+            fs.dataset.childNum = num;
+
+            const legend = document.createElement('legend');
+            legend.className = 'child-legend';
+            const legendText = document.createElement('span');
+            legendText.textContent = `Child ${num} Information`;
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'remove-child-btn';
+            removeBtn.textContent = 'Remove';
+            removeBtn.setAttribute('aria-label', `Remove child ${num}`);
+            removeBtn.addEventListener('click', () => {
+                fs.remove();
+                renumberAdditionalChildren();
+            });
+            legend.appendChild(legendText);
+            legend.appendChild(removeBtn);
+            fs.appendChild(legend);
+
+            const row1 = document.createElement('div');
+            row1.className = 'form-row';
+            const fnInput = document.createElement('input');
+            fnInput.type = 'text';
+            fnInput.dataset.field = 'firstName';
+            fnInput.placeholder = "Child's First Name *";
+            fnInput.required = true;
+            const lnInput = document.createElement('input');
+            lnInput.type = 'text';
+            lnInput.dataset.field = 'lastName';
+            lnInput.placeholder = "Child's Last Name *";
+            lnInput.required = true;
+            row1.appendChild(fnInput);
+            row1.appendChild(lnInput);
+
+            const row2 = document.createElement('div');
+            row2.className = 'form-row';
+            const dobInput = document.createElement('input');
+            dobInput.type = 'date';
+            dobInput.dataset.field = 'dob';
+            const ageInput = document.createElement('input');
+            ageInput.type = 'text';
+            ageInput.dataset.field = 'age';
+            ageInput.placeholder = 'Current Age';
+            ageInput.readOnly = true;
+            dobInput.addEventListener('change', () => { ageInput.value = calcAge(dobInput.value); });
+            row2.appendChild(dobInput);
+            row2.appendChild(ageInput);
+
+            const progSelect = document.createElement('select');
+            progSelect.dataset.field = 'program';
+            progSelect.required = true;
+            PROGRAMS.forEach(([val, text]) => {
+                const opt = document.createElement('option');
+                opt.value = val;
+                opt.textContent = text;
+                progSelect.appendChild(opt);
+            });
+
+            fs.appendChild(row1);
+            fs.appendChild(row2);
+            fs.appendChild(progSelect);
+            return fs;
+        }
+
+        function renumberAdditionalChildren() {
+            document.querySelectorAll('.additional-child').forEach((s, i) => {
+                const num = i + 2;
+                s.dataset.childNum = num;
+                s.querySelector('.child-legend span').textContent = `Child ${num} Information`;
+                s.querySelector('.remove-child-btn').setAttribute('aria-label', `Remove child ${num}`);
+            });
+        }
+
+        document.getElementById('addChildBtn').addEventListener('click', function() {
+            const existing = document.querySelectorAll('.additional-child').length;
+            const num = existing + 2;
+            const section = createChildSection(num);
+            document.getElementById('childrenContainer').appendChild(section);
+            section.querySelector('[data-field="firstName"]').focus();
         });
 
         // Admissions form — fetch submit
@@ -318,6 +427,32 @@
             btn.textContent = 'Sending…';
             status.innerHTML = '';
 
+            // Collect and validate additional children
+            const additionalSections = document.querySelectorAll('.additional-child');
+            const additionalChildren = [];
+            let extraValid = true;
+            additionalSections.forEach(section => {
+                const fn = section.querySelector('[data-field="firstName"]').value.trim();
+                const ln = section.querySelector('[data-field="lastName"]').value.trim();
+                const prog = section.querySelector('[data-field="program"]').value.trim();
+                if (!fn || !ln || !prog) { extraValid = false; }
+                additionalChildren.push({
+                    firstName: fn, lastName: ln,
+                    dob: section.querySelector('[data-field="dob"]').value,
+                    age: section.querySelector('[data-field="age"]').value,
+                    program: prog
+                });
+            });
+
+            if (!extraValid) {
+                status.innerHTML = '<p class="form-error">Please fill in all required fields for each additional child.</p>';
+                btn.disabled = false;
+                btn.textContent = 'Submit Application';
+                return;
+            }
+            document.getElementById('additionalChildrenField').value =
+                additionalChildren.length ? JSON.stringify(additionalChildren) : '';
+
             try {
                 const apiUrl = (typeof FUNCTION_URLS !== 'undefined' && FUNCTION_URLS.admissions)
                     ? FUNCTION_URLS.admissions
@@ -326,8 +461,10 @@
                 const data = await res.json();
                 if (data.success) {
                     this.reset();
+                    document.querySelectorAll('.additional-child').forEach(s => s.remove());
                     status.innerHTML = '<div class="admissions-success"><div style="font-size:2.5rem">✅</div><h3>Application Received!</h3><p>Thank you for applying to Fairfield Education Center. Our admissions team will contact you within 1–2 business days to schedule a tour.</p></div>';
                     btn.style.display = 'none';
+                    document.getElementById('addChildBtn').style.display = 'none';
                 } else {
                     const errP = document.createElement('p');
                     errP.className = 'form-error';
