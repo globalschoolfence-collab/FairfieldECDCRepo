@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Infant/Toddler Lead Teacher",
+    "location": "Fairview Park",
+    "locationLabel": "Fairview Park, OH",
+    "category": "teaching",
+    "schedule": "Full-Time",
+    "description": "Lead daily curriculum and nurturing care for our youngest learners ages 6 weeks–2 years. CDA or Associate's degree preferred.",
+    "active": true
+  },
+  {
+    "title": "Preschool Teacher (Ages 3–5)",
+    "location": "Fairview Park",
+    "locationLabel": "Fairview Park, OH",
+    "category": "teaching",
+    "schedule": "Full-Time",
+    "description": "Design and deliver play-based learning experiences for preschool-age children.",
+    "active": true
+  },
+  {
+    "title": "Floater Teacher",
+    "location": "Fairview Park",
+    "locationLabel": "Fairview Park, OH",
+    "category": "teaching",
+    "schedule": "Part-Time",
+    "description": "Support classrooms across age groups as needed. Flexible hours, great for part-time work.",
+    "active": true
+  },
+  {
+    "title": "Administrative Assistant",
+    "location": "Fairview Park",
+    "locationLabel": "Fairview Park, OH",
+    "category": "administrative",
+    "schedule": "Full-Time",
+    "description": "Support center operations, family communications, and enrollment coordination.",
+    "active": true
+  },
+  {
+    "title": "Lead Preschool Teacher",
+    "location": "Lorain",
+    "locationLabel": "Lorain, OH",
+    "category": "teaching",
+    "schedule": "Full-Time",
+    "description": "Lead a classroom of 3–5 year olds with a focus on school-readiness and social-emotional learning.",
+    "active": true
+  },
+  {
+    "title": "Teacher's Aide",
+    "location": "Lorain",
+    "locationLabel": "Lorain, OH",
+    "category": "teaching",
+    "schedule": "Part-Time",
+    "description": "Assist lead teachers with daily activities, supervision, and classroom management. Entry-level — training provided.",
+    "active": true
+  },
+  {
+    "title": "Kitchen / Nutrition Aide",
+    "location": "Lorain",
+    "locationLabel": "Lorain, OH",
+    "category": "support",
+    "schedule": "Part-Time",
+    "description": "Prepare nutritious meals and snacks for children. Food handler certification required.",
+    "active": true
+  },
+  {
+    "title": "After-School Program Teacher",
+    "location": "Elyria",
+    "locationLabel": "Elyria, OH",
+    "category": "teaching",
+    "schedule": "Part-Time",
+    "description": "Supervise and engage school-age children (K–5) in homework help, enrichment activities, and outdoor play.",
+    "active": true
+  },
+  {
+    "title": "Infant Caregiver",
+    "location": "Elyria",
+    "locationLabel": "Elyria, OH",
+    "category": "teaching",
+    "schedule": "Full-Time",
+    "description": "Provide attentive, loving care for infants 6 weeks–12 months. Experience with infants strongly preferred.",
+    "active": true
+  },
+  {
+    "title": "Toddler Room Teacher",
+    "location": "Fairlawn",
+    "locationLabel": "Fairlawn, OH",
+    "category": "teaching",
+    "schedule": "Full-Time",
+    "description": "Support the developmental milestones of toddlers ages 1–3 through structured play and sensory activities.",
+    "active": true
+  },
+  {
+    "title": "Facility & Maintenance Aide",
+    "location": "Brunswick",
+    "locationLabel": "Brunswick, OH",
+    "category": "support",
+    "schedule": "Part-Time",
+    "description": "Keep our center clean, safe, and well-maintained. Responsibilities include cleaning, minor repairs, and supply restocking.",
+    "active": true
+  },
+  {
+    "title": "Center Director (Assistant)",
+    "location": "College Park",
+    "locationLabel": "College Park, Elyria, OH",
+    "category": "administrative",
+    "schedule": "Full-Time",
+    "description": "Assist the center director with staff scheduling, licensing compliance, family relations, and daily operations.",
+    "active": true
+  }
+]

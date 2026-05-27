@@ -99,7 +99,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Your Next Career Starts Here</h2>
-                <p>We have <strong>12 open positions</strong> across our 6 centers in Northeast Ohio</p>
+                <p>We have <strong id="jobCount">—</strong> open positions across our 6 centers in Northeast Ohio</p>
             </div>
 
             <div class="careers-map-layout">
@@ -130,155 +130,9 @@
                         <button class="filter-btn" data-filter="support">Support</button>
                     </div>
 
-                    <!-- Job cards -->
-                    <div class="positions-list" id="positionsList">
-
-                        <div class="position-card" data-category="teaching" data-loc="Fairview Park">
-                            <div class="position-info">
-                                <h5>Infant/Toddler Lead Teacher</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-full">Full-Time</span>
-                                    <span class="tag tag-loc">Fairview Park, OH</span>
-                                </div>
-                                <p>Lead daily curriculum and nurturing care for our youngest learners ages 6 weeks–2 years. CDA or Associate's degree preferred.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="teaching" data-loc="Fairview Park">
-                            <div class="position-info">
-                                <h5>Preschool Teacher (Ages 3–5)</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-full">Full-Time</span>
-                                    <span class="tag tag-loc">Fairview Park, OH</span>
-                                </div>
-                                <p>Design and deliver play-based learning experiences for preschool-age children.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="teaching" data-loc="Fairview Park">
-                            <div class="position-info">
-                                <h5>Floater Teacher</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-part">Part-Time</span>
-                                    <span class="tag tag-loc">Fairview Park, OH</span>
-                                </div>
-                                <p>Support classrooms across age groups as needed. Flexible hours, great for part-time work.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="administrative" data-loc="Fairview Park">
-                            <div class="position-info">
-                                <h5>Administrative Assistant</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-full">Full-Time</span>
-                                    <span class="tag tag-loc">Fairview Park, OH</span>
-                                </div>
-                                <p>Support center operations, family communications, and enrollment coordination.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="teaching" data-loc="Lorain">
-                            <div class="position-info">
-                                <h5>Lead Preschool Teacher</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-full">Full-Time</span>
-                                    <span class="tag tag-loc">Lorain, OH</span>
-                                </div>
-                                <p>Lead a classroom of 3–5 year olds with a focus on school-readiness and social-emotional learning.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="teaching" data-loc="Lorain">
-                            <div class="position-info">
-                                <h5>Teacher's Aide</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-part">Part-Time</span>
-                                    <span class="tag tag-loc">Lorain, OH</span>
-                                </div>
-                                <p>Assist lead teachers with daily activities, supervision, and classroom management. Entry-level — training provided.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="support" data-loc="Lorain">
-                            <div class="position-info">
-                                <h5>Kitchen / Nutrition Aide</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-part">Part-Time</span>
-                                    <span class="tag tag-loc">Lorain, OH</span>
-                                </div>
-                                <p>Prepare nutritious meals and snacks for children. Food handler certification required.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="teaching" data-loc="Elyria">
-                            <div class="position-info">
-                                <h5>After-School Program Teacher</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-part">Part-Time</span>
-                                    <span class="tag tag-loc">Elyria, OH</span>
-                                </div>
-                                <p>Supervise and engage school-age children (K–5) in homework help, enrichment activities, and outdoor play.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="teaching" data-loc="Elyria">
-                            <div class="position-info">
-                                <h5>Infant Caregiver</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-full">Full-Time</span>
-                                    <span class="tag tag-loc">Elyria, OH</span>
-                                </div>
-                                <p>Provide attentive, loving care for infants 6 weeks–12 months. Experience with infants strongly preferred.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="teaching" data-loc="Fairlawn">
-                            <div class="position-info">
-                                <h5>Toddler Room Teacher</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-full">Full-Time</span>
-                                    <span class="tag tag-loc">Fairlawn, OH</span>
-                                </div>
-                                <p>Support the developmental milestones of toddlers ages 1–3 through structured play and sensory activities.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="support" data-loc="Brunswick">
-                            <div class="position-info">
-                                <h5>Facility & Maintenance Aide</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-part">Part-Time</span>
-                                    <span class="tag tag-loc">Brunswick, OH</span>
-                                </div>
-                                <p>Keep our center clean, safe, and well-maintained. Responsibilities include cleaning, minor repairs, and supply restocking.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                        <div class="position-card" data-category="administrative" data-loc="College Park">
-                            <div class="position-info">
-                                <h5>Center Director (Assistant)</h5>
-                                <div class="position-meta">
-                                    <span class="tag tag-full">Full-Time</span>
-                                    <span class="tag tag-loc">College Park, Elyria, OH</span>
-                                </div>
-                                <p>Assist the center director with staff scheduling, licensing compliance, family relations, and daily operations.</p>
-                            </div>
-                            <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
-                        </div>
-
-                    </div>
-                    <p class="no-positions" id="noPositions" style="display:none;">No positions match the selected filters.</p>
+                    <!-- Job cards rendered dynamically from /data/jobs.json -->
+                    <div class="positions-list" id="positionsList"></div>
+                    <div id="noPositions" style="display:none;"></div>
                 </div>
             </div>
         </div>
@@ -388,7 +242,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Fairfield Education Center. All Rights Reserved.</p>
+                <p>&copy; Fairfield Education Center. All Rights Reserved.</p>
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
                 </div>
@@ -416,10 +270,61 @@
             { name: 'College Park',  lat: 41.3553, lon: -82.1073 },
         ];
 
+        let allJobs = [];
+
         function jobCount(loc) {
             return loc === 'all'
-                ? document.querySelectorAll('.position-card').length
-                : [...document.querySelectorAll('.position-card')].filter(c => c.dataset.loc === loc).length;
+                ? allJobs.length
+                : allJobs.filter(j => j.location === loc).length;
+        }
+
+        function renderJobs(jobs) {
+            const list = document.getElementById('positionsList');
+            list.innerHTML = jobs.map(job => `
+                <div class="position-card" data-category="${job.category}" data-loc="${job.location}">
+                    <div class="position-info">
+                        <h5>${job.title}</h5>
+                        <div class="position-meta">
+                            <span class="tag ${job.schedule === 'Full-Time' ? 'tag-full' : 'tag-part'}">${job.schedule}</span>
+                            <span class="tag tag-loc">${job.locationLabel}</span>
+                        </div>
+                        <p>${job.description}</p>
+                    </div>
+                    <a href="#apply" class="btn btn-sm btn-primary">Apply</a>
+                </div>
+            `).join('');
+        }
+
+        async function loadJobs() {
+            try {
+                const res = await fetch('../data/jobs.json');
+                const jobs = await res.json();
+                allJobs = jobs.filter(j => j.active);
+
+                if (allJobs.length === 0) {
+                    document.getElementById('jobCount').textContent = 'no';
+                    document.getElementById('positionsList').innerHTML = '';
+                    const noPos = document.getElementById('noPositions');
+                    noPos.style.display = 'block';
+                    noPos.innerHTML = `
+                        <div class="no-jobs-state">
+                            <div class="no-jobs-icon">📋</div>
+                            <h3>No Open Positions Right Now</h3>
+                            <p>We don't have any active openings at the moment, but we're always looking for passionate people. Send us your resume and we'll reach out when something opens up.</p>
+                            <a href="#apply" class="btn btn-primary">Submit Your Resume</a>
+                        </div>`;
+                    return;
+                }
+
+                document.getElementById('jobCount').textContent = allJobs.length;
+                renderJobs(allJobs);
+                // Refresh map pin counts after jobs load
+                careerMarkers.forEach((m, i) => m.setIcon(makeCareerPin(CENTERS[i].name, false)));
+                applyFilters();
+            } catch {
+                document.getElementById('positionsList').innerHTML =
+                    '<p class="form-error">Unable to load positions. Please try again later.</p>';
+            }
         }
 
         function makeCareerPin(name, active) {
@@ -466,7 +371,14 @@
                 card.style.display = show ? 'flex' : 'none';
                 if (show) visible++;
             });
-            document.getElementById('noPositions').style.display = visible === 0 ? 'block' : 'none';
+            const noPos = document.getElementById('noPositions');
+            if (visible === 0 && allJobs.length > 0) {
+                noPos.style.display = 'block';
+                noPos.innerHTML = '<p class="no-positions-text">No positions match the selected filters.</p>';
+            } else {
+                noPos.style.display = 'none';
+                noPos.innerHTML = '';
+            }
         }
 
         function selectLocation(loc) {
@@ -541,6 +453,8 @@
                 btn.textContent = 'Submit Application';
             }
         });
+
+        loadJobs();
     </script>
 </body>
 </html>
