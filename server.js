@@ -14,7 +14,7 @@ const upload = multer({
   limits: { fileSize: 10 * 1024 * 1024 }
 });
 
-const mailTo = process.env.MAIL_TO || 'fairfieldeducationcenters@gmail.com';
+const mailTo = process.env.MAIL_TO || 'info@fairfieldec.org';
 const mailFrom = process.env.SMTP_USER || 'no-reply@localhost';
 const HONEYPOT_FIELD = 'website';
 
