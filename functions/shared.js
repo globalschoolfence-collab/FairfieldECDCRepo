@@ -13,7 +13,8 @@ const FIELD_LABELS = {
   childFirstName: 'Child First Name', childLastName: 'Child Last Name',
   childDob: 'Child Date of Birth', childAge: 'Child Age', program: 'Program',
   location: 'Preferred Location', schedule: 'Schedule Type', startDate: 'Desired Start Date',
-  allergies: 'Allergies / Special Needs', comments: 'Additional Comments'
+  allergies: 'Allergies / Special Needs', comments: 'Additional Comments',
+  stateForm: 'State Form (attached)'
 };
 
 function escapeHtml(str) {
@@ -23,7 +24,15 @@ function escapeHtml(str) {
 }
 
 function label(field) {
-  return FIELD_LABELS[field] || field.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase());
+  if (FIELD_LABELS[field]) return FIELD_LABELS[field];
+  // Handle child2FirstName → "Child 2 First Name", child3Dob → "Child 3 Date of Birth"
+  const m = field.match(/^child(\d+)(\w+)$/);
+  if (m) {
+    const baseLabel = FIELD_LABELS[`child${m[2]}`] || m[2].replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase());
+    const clean = baseLabel.startsWith('Child ') ? baseLabel.slice(6) : baseLabel;
+    return `Child ${m[1]} ${clean}`;
+  }
+  return field.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase());
 }
 
 function buildHtml(title, fields) {
@@ -58,8 +67,19 @@ function createTransporter() {
 }
 
 // Returns true if the request was an OPTIONS preflight (already handled).
+// Rejects requests from origins not in ALLOWED_ORIGIN (comma-separated list supported).
 function handleCors(req, res) {
-  res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
+  const allowedRaw = process.env.ALLOWED_ORIGIN || '';
+  const allowed = allowedRaw.split(',').map(o => o.trim()).filter(Boolean);
+  const origin = req.headers.origin || '';
+
+  // Block if origin not in the allowed list
+  if (allowed.length && !allowed.includes(origin)) {
+    res.status(403).json({ error: 'Forbidden' });
+    return true;
+  }
+
+  res.set('Access-Control-Allow-Origin', origin || allowed[0] || '*');
   res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') {

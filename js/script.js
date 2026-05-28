@@ -4,9 +4,9 @@
 // ==========================================
 
 const FUNCTION_URLS = {
-    contact:    'https://us-central1-fecemail-497003.cloudfunctions.net/contact',
-    careers:    'https://us-central1-fecemail-497003.cloudfunctions.net/careers',
-    admissions: 'https://us-central1-fecemail-497003.cloudfunctions.net/admissions'
+    contact:    'https://us-central1-fecemail2026.cloudfunctions.net/contact',
+    careers:    'https://us-central1-fecemail2026.cloudfunctions.net/careers',
+    admissions: 'https://us-central1-fecemail2026.cloudfunctions.net/admissions'
 };
 
 // Mobile Menu Toggle

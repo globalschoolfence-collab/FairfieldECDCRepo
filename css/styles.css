@@ -1407,6 +1407,26 @@ footer {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.footer-dev {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-dev strong {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-dev a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+}
+
+.footer-dev a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
 /* ========== PAGE HEADER ========== */
 .page-header {
     background: linear-gradient(135deg, var(--primary-color), #4a7ba7);
