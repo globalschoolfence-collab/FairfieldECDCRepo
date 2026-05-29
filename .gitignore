@@ -1,3 +1,7 @@
 node_modules/
 functions/node_modules/
 .env
+
+# Documentation files
+DEVELOPER_GUIDE.md
+developer-guide/
